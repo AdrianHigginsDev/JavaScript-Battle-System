@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Battle System</title>
+<script src="dep/jquery-3.1.1.min.js"></script>
+<script src="BattleController.js"></script>
+<link href="Battle-System.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<!-- Opening Pop Up Div That Initiates Game -->
+
+
+<div id="ReadyDiv">
+<div class="Play1Weapon">
+<h3>Player 1 Weapon</h3>
+<button value="Sword 1" onclick="Play1Sword1()">Sword 1</button>
+<button value="Sword 2" onclick="Play1Sword2()">Sword 2</button>
+<button value="Sword 3" onclick="Play1Sword3()">Sword 3</button>
+<button value="Sword 4" onclick="Play1Sword4()">Sword 4</button>
+</div>
+<div class="Play2Weapon">
+<h3>Player 2 Weapon</h3>
+<button value="Sword 1" onclick="Play2Sword1()">Sword 1</button>
+<button value="Sword 2" onclick="Play2Sword2()">Sword 2</button>
+<button value="Sword 3" onclick="Play2Sword3()">Sword 3</button>
+<button value="Sword 4" onclick="Play2Sword4()">Sword 4</button>
+</div>
+<h1>Play?</h1>
+<button id="Ready" class="Ready">Yes!</button>
+</div>
+
+<!-- Pop Up Div When Game Is Over -->
+
+<div id="GameOver">
+<h1>Game Over!  Play Again?</h1>
+<input type="button" value="Yes!" onClick="window.location.reload()">
+</div>
+
+<!-- Top Table // Battle Field -->
+
+
+<table class="BattleField" style="width:100%; border:solid; border-color:green; border-width:5px; height:100%">
+  <tr>
+    <th class="empty">Player 1</th>
+    <th class="empty"><p class='BattleLog'></p></th> 
+    <th class="empty">Player 2</th>
+  </tr>
+  <tr>
+    <td class="empty"><p class='Play1H'></p><p class="Play1Mana"></p></td>
+    <td class="attScrn"><strong><p style="color:black; font-size:2vw;" class="AttScrn1"></p><p style="color:black; font-size:2vw" class="AttScrn2"></p></strong></td>
+    <td class="empty"><p class="Play2H"><p class="Play2Mana"></p></p></td>
+  </tr>
+  <tr>
+    <td class="empty"></td>
+    <td class="attScrn"></td>
+    <td class="empty"></td>
+  </tr>
+  <tr>
+    <td class="empty"><button class="Play1Attb" onclick="attack1()">Attack</button></td>
+    <td class="attScrn"></td>
+    <td class="empty"><button class="Play2Attb" onclick="attack2()">Attack</button></td>
+  </tr>
+</table>
+<br><br>
+
+<!-- Bottom Table // Abilities -->
+
+<div class="AbilityTable">
+
+<table style="width:100%; height:100%">
+  <tr>
+    <th class="Play1Abilities">Player 1 Spells</th>
+    <th class="none"></th> 
+    <th class="Play2Abilities">Player 2 Spells</th>
+  </tr>
+  
+  <tr>
+
+
+  <!-- Player 1 Att Spells -->
+
+
+    <td class="Play1Abilities" ><button id="P1FS1" class="firespell P1Ab" onclick="Play1FireSpell1()">Fire 1</button><button id="P1IS1" class="icespell P1Ab" onclick="Play1IceSpell1()">Ice 1</button><button id="P1LS1" class="lightningspell P1Ab" onclick="Play1LightningSpell1()">Lightning 1</button><button id="P1FS2" class="firespell P1Ab" onclick="Play1FireSpell2()">Fire 2</button><button id="P1IS2" class="icespell P1Ab" onclick="Play1IceSpell2()">Ice 2</button><button id="P1LS2" class="lightningspell P1Ab" onclick="Play1LightningSpell2()">Lightning 2</button><button id="P1FS3" class="firespell P1Ab" onclick="Play1FireSpell3()">Fire 3</button><button id="P1IS3" class="icespell P1Ab" onclick="Play1IceSpell3()">Ice 3</button><button id="P1LS3" class="lightningspell P1Ab" onclick="Play1LightningSpell3()">Lightning 3</button></td>
+
+    <td class="none"></td>
+
+
+    <!-- Player 2 Att Spells -->
+
+
+    <td class="Play2Abilities" ><button id="P2FS1" class="firespell P2Ab" onclick="Play2FireSpell1()">Fire 1</button><button id="P2IS1" class="icespell P2Ab" onclick="Play2IceSpell1()">Ice 1</button><button id="P2LS1" class="lightningspell P2Ab" onclick="Play2LightningSpell1()">Lightning 1</button><button id="P2FS2" class="firespell P2Ab" onclick="Play2FireSpell2()">Fire 2</button><button id="P2IS2" class="icespell P2Ab" onclick="Play2IceSpell2()">Ice 2</button><button id="P2LS2" class="lightningspell P2Ab" onclick="Play2LightningSpell2()">Lightning 2</button><button id="P2FS3" class="firespell P2Ab" onclick="Play2FireSpell3()">Fire 3</button><button id="P2IS3" class="icespell P2Ab" onclick="Play2IceSpell3()">Ice 3</button><button id="P2LS3" class="lightningspell P2Ab" onclick="Play2LightningSpell3()">Lightning 3</button>
+
+
+    </td>
+  </tr>
+
+<!-- Player One Heal Spells -->
+
+  <tr>
+    <td class="Play1Abilities"><button id="P1HS1" class="healspell P1Ab" onclick="Play1HealSpell1()">Heal 1</button><button id="P1HS2" class="healspell P1Ab" onclick="Play1HealSpell2()">Heal 2</button><button id="P1HS3" class="healspell P1Ab" onclick="Play1HealSpell3()">Heal 3</button></td>
+
+
+    <td class="fixed"></td>
+
+    <!-- Player Two Heal Spells -->
+
+
+    <td class="Play2Abilities"><button id="P2HS1" class="healspell P2Ab" onclick="Play2HealSpell1()">Heal 1</button><button id="P2HS2" class="healspell P2Ab" onclick="Play2HealSpell2()">Heal 2</button><button id="P2HS3" class="healspell P2Ab" onclick="Play2HealSpell3()">Heal 3</button></td>
+  </tr>
+  <tr>
+
+
+  <!-- Player 1 Holy Sheild -->
+
+
+    <td class="Play1Abilities" onclick="Play1HolySheild()"><button id="P1HS" class="HolySheild1 P1Ab">Holy Sheild</button></td>
+
+    <td class="none"></td>
+
+
+    <!-- Player 2 Holy Sheild -->
+
+
+    <td class="Play2Abilities" onclick="Play2HolySheild()"><button id="P2HS" class="HolySheild2 P2Ab">Holy Sheild</button></td>
+  </tr>
+</table>
+
+</div>
+
+
+
+
+
+
+</div>
+</body>
+</html>

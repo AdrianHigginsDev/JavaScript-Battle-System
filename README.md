@@ -25,8 +25,4 @@ I put a lot of effort into this, but I do not intend to make a full game out of 
 engineer and their back-end engineer buddy would use this to build thier masterpiece.
 
 
-<<<<<<< HEAD
 # THANK YOU FOR CHECKING OUT MY PROJECT!  TO TEST IT OUT, DOWNLOAD THE FILE, AND OPEN THE HTML FILE IN YOUR BROWSER!
-=======
-# THANK YOU FOR CHECKING OUT MY PROJECT!  TO TEST IT OUT, DOWNLOAD THE FILE, AND OPEN THE HTML FILE IN YOUR BROWSER!
->>>>>>> 8b7ce9c3e611336044af80dfdb709f1406717868
